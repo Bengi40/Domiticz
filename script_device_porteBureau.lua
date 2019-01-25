@@ -24,8 +24,8 @@ local porte={}
     porte['ouverte']	= '$bureau-ouvert'              -- Nom de l'interupteur d'ouverture
     porte['fermee']	    = '$bureau-fermer'              -- Nom de l'interupteur fermeture
     porte['casse']      = '$bureau-casser'              -- Nom de l'interupteur en cqs de casse du module
-    porte['virtuel']	= 'Fenetre Bureau'               -- Nom de l'interupteur virtuel
-    porte['alarme']     = 'Alarme'                     -- Nom de l'alarme
+    porte['virtuel']	= 'Fenetre Bureau'              -- Nom de l'interupteur virtuel
+    porte['alarme']     = 'Alarme'                     	-- Nom de l'alarme
 ----------------------------------------------
 --       Fin de la partie configuration     --
 ----------------------------------------------

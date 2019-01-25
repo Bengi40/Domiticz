@@ -21,9 +21,9 @@ Creation de la porte virtuel : mettre en Door Lock
 ------          Configuration          ------
 
 local porte={}
-    porte['ouverte']	= '$Fenetre Sora ouverte'              -- Nom de l'interupteur d'ouverture
-    porte['fermee']	    = '$Fenetre Sora ferme'              -- Nom de l'interupteur fermeture
-    porte['casse']      = '$Fenetre Sora casse'              -- Nom de l'interupteur en cqs de casse du module
+    porte['ouverte']	= '$Fenetre Sora ouverte'      -- Nom de l'interupteur d'ouverture
+    porte['fermee']	    = '$Fenetre Sora ferme'        -- Nom de l'interupteur fermeture
+    porte['casse']      = '$Fenetre Sora casse'        -- Nom de l'interupteur en cqs de casse du module
     porte['virtuel']	= 'Fenetre Sora'               -- Nom de l'interupteur virtuel
     porte['alarme']     = 'Alarme'                     -- Nom de l'alarme
 ----------------------------------------------

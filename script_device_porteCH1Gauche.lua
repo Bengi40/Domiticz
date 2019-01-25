@@ -21,11 +21,11 @@ Creation de la porte virtuel : mettre en Door Lock
 ------          Configuration          ------
 
 local porte={}
-    porte['ouverte']	= '$Porte Fenetre CH1 Gauche ouverte'              -- Nom de l'interupteur d'ouverture
-    porte['fermee']	    = '$Porte Fenetre CH1 Gauche ferme'              -- Nom de l'interupteur fermeture
-    porte['casse']      = '$Porte Fenetre CH1 Gauche casse'              -- Nom de l'interupteur en cqs de casse du module
-    porte['virtuel']	= 'Porte Fenetre CH1 Gauche'               -- Nom de l'interupteur virtuel
-    porte['alarme']     = 'Alarme'                     -- Nom de l'alarme
+    porte['ouverte']	= '$Porte Fenetre CH1 Gauche ouverte'       -- Nom de l'interupteur d'ouverture
+    porte['fermee']	    = '$Porte Fenetre CH1 Gauche ferme'  		-- Nom de l'interupteur fermeture
+    porte['casse']      = '$Porte Fenetre CH1 Gauche casse'         -- Nom de l'interupteur en cqs de casse du module
+    porte['virtuel']	= 'Porte Fenetre CH1 Gauche'               	-- Nom de l'interupteur virtuel
+    porte['alarme']     = 'Alarme'                     				-- Nom de l'alarme
 ----------------------------------------------
 --       Fin de la partie configuration     --
 ----------------------------------------------

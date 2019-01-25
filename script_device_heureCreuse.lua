@@ -3,7 +3,7 @@
 Type:          device
 Name:          Gestion Hc/Hp
  
-Description:   Régle le thermostat du Radiateur suivant les heure creuse et pleine
+Description:   Régle le thermostat du Radiateur suivant les heures creuse et pleine
 
 Usage:         
              

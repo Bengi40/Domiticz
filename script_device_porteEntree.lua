@@ -22,7 +22,7 @@ Creation de la porte virtuel : mettre en Door Lock
 
 local porte={}
     porte['ouverte']	= '$Porte entree ouverte'       -- Nom de l'interupteur d'ouverture
-    porte['fermee']	    = '$Porte entree fermer'       -- Nom de l'interupteur fermeture
+    porte['fermee']	    = '$Porte entree fermer'       	-- Nom de l'interupteur fermeture
     porte['casse']      = '$Porte entree casse'         -- Nom de l'interupteur en cqs de casse du module
     porte['virtuel']	= 'Porte Entree'                -- Nom de l'interupteur virtuel
     porte['alarme']     = 'Alarme'                      -- Nom de l'alarme

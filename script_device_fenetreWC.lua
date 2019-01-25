@@ -21,11 +21,11 @@ Creation de la porte virtuel : mettre en Door Lock
 ------          Configuration          ------
 
 local porte={}
-    porte['ouverte']	= '$Fenetre WC ouverte'              -- Nom de l'interupteur d'ouverture
-    porte['fermee']	    = '$Fenetre WC ferme'              -- Nom de l'interupteur fermeture
-    porte['casse']      = '$Fenetre WC casse'              -- Nom de l'interupteur en cqs de casse du module
-    porte['virtuel']	= 'Fenetre WC'               -- Nom de l'interupteur virtuel
-    porte['alarme']     = 'Alarme'                     -- Nom de l'alarme
+    porte['ouverte']	= '$Fenetre WC ouverte'     -- Nom de l'interupteur d'ouverture
+    porte['fermee']	    = '$Fenetre WC ferme'       -- Nom de l'interupteur fermeture
+    porte['casse']      = '$Fenetre WC casse'       -- Nom de l'interupteur en cqs de casse du module
+    porte['virtuel']	= 'Fenetre WC'        		-- Nom de l'interupteur virtuel
+    porte['alarme']     = 'Alarme'                  -- Nom de l'alarme
 ----------------------------------------------
 --       Fin de la partie configuration     --
 ----------------------------------------------
