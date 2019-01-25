@@ -1,3 +1,4 @@
+dofile('/home/pi/domoticz/scripts/lua/config.lua')
 --[[
 bibliothèque de fonctions pour domoticz
 utiles à la réalisation de scripts d'automation en langage lua
@@ -10,30 +11,6 @@ dofile('/home/pi/domoticz/scripts/lua/fonctions.lua')
 local debug = true  -- true pour voir les logs dans la console log Dz ou false pour ne pas les voir
 --------------------------------------------------------------------------------------------------------
 ]]
-
-
---------------------------------
------- 	  USER SETTINGS	  ------
---------------------------------
-
--- domoticz
-domoticzIP = '192.168.1.250'	--'127.0.0.1'
-domoticzPORT = '8084'
-domoticzUSER = 'gonzo47'		-- nom d'utilisateur
-domoticzPSWD = 'Rugbyman47'		-- mot de pass
-domoticzPASSCODE = ''	-- pour interrupteur protégés
-domoticzURL = 'http://'..domoticzIP..':'..domoticzPORT
-
--- passerelle SMS
-smsGatewayIP = '192.168.1.253'
-smsGatewayPORT = '45497'
-smsGatewayURL = 'http://'..smsGatewayIP..':'..smsGatewayPORT
-
-admin = 'gonzalez.benjamin47@gmail.com'
-
---------------------------------
-------         END        ------
---------------------------------
 
 
 -- chemin vers le dossier lua et curl
