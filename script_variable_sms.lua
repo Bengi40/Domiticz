@@ -1,4 +1,5 @@
 dofile('/home/pi/domoticz/scripts/lua/fonctions.lua')
+dofile('/home/pi/domoticz/scripts/lua/config.lua')
 
 
 -- script_variable_sms.lua
@@ -50,13 +51,6 @@ liste['douche'] =           [[   commandArray['RadiateurSDB'] = 'Set Level 30'
 
 liste['volet SAM Off'] =    [[   commandArray['Volet-SAM'] = 'On'
                                  reponse = 'Je ferme le volet de la Salle a manger'   ]]
-   
-
--- liste des utilisateurs autorisés
-local user={}
-user['benjamin'] = '+33651886111'
-user['eloise'] = '+33608956982'
--- etc..      
 
 -- paramètres du serveur SMS Gateway Ultimate   
 gateway = smsGatewayIP..':'..smsGatewayPORT     -- url du serveur sms gateway
@@ -134,4 +128,4 @@ if(uservariablechanged['sms']) then
    commandArray['OpenURL']=gateway..'/send.html?smsto='..from..'&smsbody='..url_encode(reponse)..'&smstype=sms'
 end
 
-return commandArray 
+return commandArray
