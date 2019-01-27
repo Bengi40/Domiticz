@@ -1,0 +1,2 @@
+Fenetre SDB : Closed et Open
+Autres fenetre et porte (Chacon 34946): Locked et Unlocked
