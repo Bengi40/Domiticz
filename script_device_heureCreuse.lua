@@ -33,6 +33,7 @@ if (otherdevices[saison] == 'Hiver') then
 
                 elseif (otherdevices[heure_creuse]) == 'Heure Pleine' then
                     commandArray[thermostat[i]]= 'Set Level 10'
+				end
             end
 		end
     end
