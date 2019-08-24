@@ -11,17 +11,16 @@ Usage:
 --]]
  
 ----------------------------------------------
-------          Configuration          ------
-
-
-----------------------------------------------
---       Fin de la partie configuration       --
+------          Configuration          -------
 ----------------------------------------------
 
 local thermostat = {"Thermostat SDB", "Thermostat SAM", "Thermostat Bureau", "Thermostat CH1", "Thermostat CH2"}
 local heure_creuse = 'heureCreuse'
 local saison = 'Saison'
 
+----------------------------------------------
+--       Fin de la partie configuration     --
+----------------------------------------------
 
 commandArray = {}
 if (otherdevices[saison] == 'Hiver') then

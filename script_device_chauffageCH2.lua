@@ -12,7 +12,9 @@ Usage:
 --]]
  
 ----------------------------------------------
-------          Configuration          ------
+------          Configuration          -------
+----------------------------------------------
+
 local   saison = 'Saison'
 local   chauffage={}
             chauffage['sonde']          = 'Chambre 2'             --Nom de la sonde de température
@@ -27,7 +29,7 @@ local   chauffage={}
             chauffage['boost']          = 2    
 
 ----------------------------------------------
---       Fin de la partie configuration       --
+--       Fin de la partie configuration     --
 ----------------------------------------------
  
 

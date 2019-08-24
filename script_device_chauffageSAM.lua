@@ -15,7 +15,7 @@ Usage:
 ------          Configuration          ------
 local   saison = 'Saison'
 local   chauffage={}
-            chauffage['sonde']          = 'SAM'              	--Nom de la sonde de température
+            chauffage['sonde']          = 'SAM'              	    --Nom de la sonde de température
             chauffage['saison']         = 'Saison'					--Nom de l'interrupteur virtuel du thermostat
             chauffage['thermostat']     = 'Thermostat SAM'   		--Interrupteur général du radiateur
             chauffage['radiateur']      = 'Radiateur SAM'    		--Nom du radiateur à allumer/éteindre
@@ -27,7 +27,7 @@ local   chauffage={}
             chauffage['confort']        = 1
             chauffage['boost']          = 2 
 ----------------------------------------------
---       Fin de la partie configuration       --
+--       Fin de la partie configuration     --
 ----------------------------------------------
  
 

@@ -18,7 +18,8 @@ Creation de la porte virtuel : mettre en Door Lock
 --]]
  
 ----------------------------------------------
-------          Configuration          ------
+------          Configuration          -------
+----------------------------------------------
 
 local porte={}
     porte['ouverte']	= '$Porte Fenetre CH1 Droite ouverte'       -- Nom de l'interupteur d'ouverture
