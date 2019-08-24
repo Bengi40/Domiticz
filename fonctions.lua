@@ -83,17 +83,23 @@ end
         
 -- Gestion du chauffage
 function etatChauffage(chauffage)
-    if (devicechanged[chauffage['sonde']]) or (devicechanged[chauffage['fenetre']]) or (devicechanged[chauffage['consigne']]) or (devicechanged[chauffage['saison']]) or (devicechanged[chauffage['heure_creuse']]) or (devicechanged[chauffage['prog_rad']]) then
+    if  (devicechanged[chauffage['sonde']]) or
+        (devicechanged[chauffage['fenetre']]) or 
+        (devicechanged[chauffage['consigne']]) or 
+        (devicechanged[chauffage['saison']]) or 
+        (devicechanged[chauffage['heure_creuse']]) or 
+        (devicechanged[chauffage['prog_rad']]) then
         
-    local temperature = getTemp(chauffage['sonde'])                         --Temperature relevée dans la piece
-    local consigne =  consigneTemperature(chauffage['consigne']) -- Temperature voulu
-    local fenetre = tonumber(otherdevices_svalues[fenetre])                 -- Récupération de la valeur de la fenetre
+    -- Configuration des variables
+    local temperature = getTemp(chauffage['sonde'])                     -- Temperature relevée dans la piece
+    local consigne =  consigneTemperature(chauffage['consigne'])        -- Temperature voulu
+    local fenetre = tonumber(otherdevices_svalues[fenetre])             -- Récupération de la valeur de la fenetre
      
     local eco		= consigne                          -- Valeur en HP 
     local confort	= consigne + chauffage['confort']   -- Valeur en HC
     local boost		= consigne + chauffage['boost']     -- Boost de la température temporaire
     
-    -- Gestion 
+    -- Gestion Chauffage
         if (otherdevices[chauffage['thermostat']] ~= 'Off') then
             print('-- Gestion du thermostat pour ' ..chauffage['sonde'] .. '--')
             if (otherdevices[chauffage['thermostat']]=='eco') then

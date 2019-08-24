@@ -14,11 +14,25 @@ Version : 2.0
 log : Simplification et allegement du code
 --]]
 
+----------------------------------------------
+------          Configuration          -------
+----------------------------------------------
+
 local thermostat		= 'Saison'				--Gestion de la saison
 local heure_creuse		= 'heureCreuse'			--Gestion des heures creuses et pleines
 
 -- entrer les nom des radiateurs a la suite
-local thermostatRadiateurs={"Thermostat SDB", "Thermostat Bureau", "Thermostat CH2", "Thermostat CH1", "Thermostat SAM"}
+local thermostatRadiateurs={
+    "Thermostat SDB", 
+    "Thermostat Bureau",
+    "Thermostat CH2", 
+    "Thermostat CH1", 
+    "Thermostat SAM"
+}
+
+----------------------------------------------
+--       Fin de la partie configuration     --
+----------------------------------------------
 
 commandArray = {}
 

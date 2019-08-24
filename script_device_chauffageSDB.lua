@@ -12,7 +12,9 @@ Usage:
 --]]
  
 ----------------------------------------------
-------          Configuration          ------
+------          Configuration          -------
+----------------------------------------------
+
 local   saison = 'Saison'
 local fenetre = 'Fenetre SDB'
 local   chauffage={}
@@ -28,7 +30,7 @@ local   chauffage={}
             chauffage['confort']        = 1
             chauffage['boost']          = 2 
 ----------------------------------------------
---       Fin de la partie configuration       --
+--       Fin de la partie configuration     --
 ----------------------------------------------
  
 
