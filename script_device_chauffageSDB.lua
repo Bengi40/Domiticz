@@ -1,4 +1,4 @@
-dofile('/home/pi/domoticz/scripts/lua/fonctions.lua')
+dofile('./fonctions.lua')
 --[[ 
 
 Type:          time
