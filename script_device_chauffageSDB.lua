@@ -15,8 +15,6 @@ Usage:
 ------          Configuration          -------
 ----------------------------------------------
 
-local   saison = 'Saison'
-local fenetre = 'Fenetre SDB'
 local   chauffage={}
             chauffage['sonde']          = 'SDB'        		    --Nom de la sonde de température
 			chauffage['saison']         = 'Saison'				--Nom de l'interrupteur virtuel du thermostat
@@ -35,8 +33,5 @@ local   chauffage={}
  
 
 commandArray = {}
-
-    if (otherdevices[saison]== 'Hiver') then
-        etatChauffage(chauffage)
-    end
+    etatChauffage(chauffage)
 return commandArray
