@@ -80,16 +80,6 @@ function consigneTemperature(consigne)
     return tonumber(otherdevices_svalues[consigne])
 end
         
-function etatHeureCreuse(temperature, consigne, hysteresis)
-    if (temperature < (consigne - hysteresis) ) then
-       -- print('Allumage du chauffage en heure creuse dans : ' ..chauffage['sonde'])
-        return chauffage['radiateur'] == 'Off'
-    elseif (temperature > (consigne + hysteresis)) then
-      --  print('Extinction du chauffage en heure creuse dans : ' ..chauffage['sonde'])
-        return chauffage['radiateur'] == 'On'
-    end
-end
-
 -- Gestion du chauffage
 function etatChauffage(chauffage)
     if  (devicechanged[chauffage['sonde']]) or
@@ -112,16 +102,33 @@ function etatChauffage(chauffage)
     -- Gestion Chauffage
         if (otherdevices[chauffage['thermostat']] ~= 'Off') then
             print('-- Gestion du thermostat pour ' ..chauffage['sonde'] .. '--')
+
             if (otherdevices[chauffage['thermostat']]=='eco') then
-                chauffage['radiateur'] = 'Off'
+                if (temperature < (eco - hysteresis) ) then
+                    -- print('Allumage du chauffage en heure plein dans : ' ..chauffage['sonde'])
+                    chauffage['radiateur'] = 'Off'
+                elseif (temperature > (eco + hysteresis)) then
+                --  print('Extinction du chauffage en heure plein dans : ' ..chauffage['sonde'])
+                    chauffage['radiateur'] = 'On'
+                end
 
             elseif (otherdevices[chauffage['thermostat']]=='confort') then
-                etatHeureCreuse(temperature, confort, hysteresis)
-                chauffage['radiateur'] = 'On'
+                if (temperature < (confort - hysteresis) ) then
+                    -- print('Allumage du chauffage en heure creuse dans : ' ..chauffage['sonde'])
+                    chauffage['radiateur'] = 'Off'
+                elseif (temperature > (confort + hysteresis)) then
+                --  print('Extinction du chauffage en heure creuse dans : ' ..chauffage['sonde'])
+                    chauffage['radiateur'] = 'On'
+                end
 
             elseif (otherdevices[chauffage['thermostat']]=='boost') then
-                etatHeureCreuse(temperature, boost, hysteresis)
-                chauffage['radiateur'] = 'On'
+                if (temperature < (boost - hysteresis) ) then
+                    -- print('Allumage du chauffage en Boost dans : ' ..chauffage['sonde'])
+                    chauffage['radiateur'] = 'Off'
+                elseif (temperature > (boost + hysteresis)) then
+                --  print('Extinction du chauffage en Boost dans : ' ..chauffage['sonde'])
+                    chauffage['radiateur'] = 'On'
+                end
             end
 
         elseif (otherdevices[chauffage['thermostat']]=='Off') then
