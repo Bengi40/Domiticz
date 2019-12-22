@@ -107,28 +107,28 @@ function etatChauffage(chauffage)
                 
                 if (temperature < (eco - hysteresis) ) then
                     print('Allumage du chauffage en heure plein dans : ' ..chauffage['sonde'])
-                    chauffage['radiateur'] = 'Off'
+                    commandArray[chauffage['radiateur']] = 'Off'
                 elseif (temperature > (eco + hysteresis)) then
                     print('Extinction du chauffage en heure plein dans : ' ..chauffage['sonde'])
-                    chauffage['radiateur'] = 'On'
+                    commandArray[chauffage['radiateur']] = 'On'
                 end
 
             elseif (otherdevices[chauffage['thermostat']]=='confort') then
                 if (temperature < (confort - hysteresis) ) then
                     print('Allumage du chauffage en heure creuse dans : ' ..chauffage['sonde'])
-                    chauffage['radiateur'] = 'Off'
+                    commandArray[chauffage['radiateur']] = 'Off'
                 elseif (temperature > (confort + hysteresis)) then
                     print('Extinction du chauffage en heure creuse dans : ' ..chauffage['sonde'])
-                    chauffage['radiateur'] = 'On'
+                    commandArray[chauffage['radiateur']] = 'On'
                 end
 
             elseif (otherdevices[chauffage['thermostat']]=='boost') then
                 if (temperature < (boost - hysteresis) ) then
                     print('Allumage du chauffage en Boost dans : ' ..chauffage['sonde'])
-                    chauffage['radiateur'] = 'Off'
+                    commandArray[chauffage['radiateur']] = 'Off'
                 elseif (temperature > (boost + hysteresis)) then
                     print('Extinction du chauffage en Boost dans : ' ..chauffage['sonde'])
-                    chauffage['radiateur'] = 'On'
+                    commandArray[chauffage['radiateur']] = 'On'
                 end
             end
 
