@@ -84,27 +84,26 @@ end
 function etatHeureCreuse(temperature, consigne, hysteresis)
     if (temperature < (consigne - hysteresis) ) then
        -- print('Allumage du chauffage en heure creuse dans : ' ..chauffage['sonde'])
-        return commandArray[chauffage['radiateur']]='Off'
-
+        return commandArray[chauffage['radiateur']] == 'Off'
     elseif (temperature > (consigne + hysteresis)) then
       --  print('Extinction du chauffage en heure creuse dans : ' ..chauffage['sonde'])
-        return commandArray[chauffage['radiateur']]='On'
+        return commandArray[chauffage['radiateur']] == 'On'
     end
 end
 
 -- Gestion du chauffage
 function etatChauffage(chauffage)
     if  (devicechanged[chauffage['sonde']]) or
-        (devicechanged[chauffage['fenetre']]) or 
-        (devicechanged[chauffage['consigne']]) or 
-        (devicechanged[chauffage['saison']]) or 
-        (devicechanged[chauffage['heure_creuse']]) or 
+        (devicechanged[chauffage['fenetre']]) or
+        (devicechanged[chauffage['consigne']]) or
+        (devicechanged[chauffage['saison']]) or
+        (devicechanged[chauffage['heure_creuse']]) or
         (devicechanged[chauffage['prog_rad']]) then
         
     -- Configuration des variables
     local temperature = getTemp(chauffage['sonde'])                     -- Temperature relevée dans la piece
     local consigne =  consigneTemperature(chauffage['consigne'])        -- Temperature voulu
-    local fenetre = tonumber(otherdevices_svalues[fenetre])             -- Récupération de la valeur de la fenetre
+    -- local fenetre = tonumber(otherdevices_svalues[fenetre])             -- Récupération de la valeur de la fenetre
      
     local eco		    = consigne                          -- Valeur en HP 
     local confort	    = consigne + chauffage['confort']   -- Valeur en HC
@@ -125,7 +124,7 @@ function etatChauffage(chauffage)
             end
 
         elseif (otherdevices[chauffage['thermostat']]=='Off') then
-            commandArray[chauffage['radiateur']]='On'   
-        end         
-    end  
+            commandArray[chauffage['radiateur']]='On'
+        end
+    end
 end
