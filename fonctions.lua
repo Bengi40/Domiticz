@@ -113,14 +113,15 @@ function etatChauffage(chauffage)
         if (otherdevices[chauffage['thermostat']] ~= 'Off') then
             print('-- Gestion du thermostat pour ' ..chauffage['sonde'] .. '--')
             if (otherdevices[chauffage['thermostat']]=='eco') then
-                commandArray[chauffage['radiateur']]
+                chauffage['radiateur'] = 'Off'
 
             elseif (otherdevices[chauffage['thermostat']]=='confort') then
                 etatHeureCreuse(temperature, confort, hysteresis)
+                chauffage['radiateur'] = 'On'
 
             elseif (otherdevices[chauffage['thermostat']]=='boost') then
                 etatHeureCreuse(temperature, boost, hysteresis)
-                commandArray[chauffage['radiateur']]
+                chauffage['radiateur'] = 'On'
             end
 
         elseif (otherdevices[chauffage['thermostat']]=='Off') then
