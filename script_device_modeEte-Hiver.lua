@@ -37,16 +37,22 @@ local thermostatRadiateurs={
 commandArray = {}
 
 if (devicechanged[thermostat]) then
+
     if (otherdevices[thermostat]=='Hiver') and (otherdevices[heure_creuse]=='Heure Creuse') then
-        for i = 1, #thermostatRadiateurs do 
+        for i = 1, #thermostatRadiateurs do
+            print('Passage du ' ..thermostatRadiateurs[i].. ' en mode Confort')
             commandArray[thermostatRadiateurs[i]]='Set Level 20'
-		 end    
+        end    
+        
     elseif (otherdevices[thermostat]=='Hiver') and (otherdevices[heure_creuse]=='Heure Pleine') then
         for i = 1, #thermostatRadiateurs do 
+            print('Passage du ' ..thermostatRadiateurs[i].. ' en mode eco')
                 commandArray[thermostatRadiateurs[i]]='Set Level 10'
-		end 
+        end
+        
     else 
         for i = 1, #thermostatRadiateurs do 
+            print('Passage du ' ..thermostatRadiateurs[i].. ' en Off')
 		  commandArray[thermostatRadiateurs[i]]='Off'
         end
     end 
