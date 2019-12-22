@@ -83,10 +83,10 @@ end
 function etatHeureCreuse(temperature, consigne, hysteresis)
     if (temperature < (consigne - hysteresis) ) then
        -- print('Allumage du chauffage en heure creuse dans : ' ..chauffage['sonde'])
-        return commandArray[chauffage['radiateur']] = 'Off'
+        commandArray[chauffage['radiateur']] = 'Off'
     elseif (temperature > (consigne + hysteresis)) then
       --  print('Extinction du chauffage en heure creuse dans : ' ..chauffage['sonde'])
-        return commandArray[chauffage['radiateur']] = 'On'
+        commandArray[chauffage['radiateur']] = 'On'
     end
 end
 
