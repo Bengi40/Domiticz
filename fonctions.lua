@@ -1,4 +1,3 @@
-dofile('/home/pi/domoticz/scripts/lua/config.lua')
 --[[
 bibliothèque de fonctions pour domoticz
 utiles à la réalisation de scripts d'automation en langage lua
