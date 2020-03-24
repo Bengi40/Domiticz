@@ -33,8 +33,5 @@ local   chauffage={}
 ----------------------------------------------
 
 commandArray = {}
-
-if (otherdevices[saison]== 'Hiver') then
     etatChauffage(chauffage)
-end
 return commandArray

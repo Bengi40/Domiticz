@@ -1,4 +1,3 @@
-dofile('/home/pi/domoticz/scripts/lua/config.lua')
 --[[
 bibliothèque de fonctions pour domoticz
 utiles à la réalisation de scripts d'automation en langage lua
@@ -81,30 +80,19 @@ function consigneTemperature(consigne)
     return tonumber(otherdevices_svalues[consigne])
 end
         
-function etatHeureCreuse(temperature, consigne, hysteresis)
-    if (temperature < (consigne - hysteresis) ) then
-       -- print('Allumage du chauffage en heure creuse dans : ' ..chauffage['sonde'])
-        return commandArray[chauffage['radiateur']]='Off'
-
-    elseif (temperature > (consigne + hysteresis)) then
-      --  print('Extinction du chauffage en heure creuse dans : ' ..chauffage['sonde'])
-        return commandArray[chauffage['radiateur']]='On'
-    end
-end
-
 -- Gestion du chauffage
 function etatChauffage(chauffage)
     if  (devicechanged[chauffage['sonde']]) or
-        (devicechanged[chauffage['fenetre']]) or 
-        (devicechanged[chauffage['consigne']]) or 
-        (devicechanged[chauffage['saison']]) or 
-        (devicechanged[chauffage['heure_creuse']]) or 
+        (devicechanged[chauffage['fenetre']]) or
+        (devicechanged[chauffage['consigne']]) or
+        (devicechanged[chauffage['saison']]) or
+        (devicechanged[chauffage['heure_creuse']]) or
         (devicechanged[chauffage['prog_rad']]) then
         
     -- Configuration des variables
     local temperature = getTemp(chauffage['sonde'])                     -- Temperature relevée dans la piece
     local consigne =  consigneTemperature(chauffage['consigne'])        -- Temperature voulu
-    local fenetre = tonumber(otherdevices_svalues[fenetre])             -- Récupération de la valeur de la fenetre
+    -- local fenetre = tonumber(otherdevices_svalues[fenetre])             -- Récupération de la valeur de la fenetre
      
     local eco		    = consigne                          -- Valeur en HP 
     local confort	    = consigne + chauffage['confort']   -- Valeur en HC
@@ -114,18 +102,38 @@ function etatChauffage(chauffage)
     -- Gestion Chauffage
         if (otherdevices[chauffage['thermostat']] ~= 'Off') then
             print('-- Gestion du thermostat pour ' ..chauffage['sonde'] .. '--')
+
             if (otherdevices[chauffage['thermostat']]=='eco') then
-                etatHeureCreuse(temperature, eco, hysteresis)
+                
+                if (temperature < (eco - hysteresis) ) then
+                    print('Allumage du chauffage en heure plein dans : ' ..chauffage['sonde'])
+                    commandArray[chauffage['radiateur']] = 'Off'
+                elseif (temperature > (eco + hysteresis)) then
+                    print('Extinction du chauffage en heure plein dans : ' ..chauffage['sonde'])
+                    commandArray[chauffage['radiateur']] = 'On'
+                end
 
             elseif (otherdevices[chauffage['thermostat']]=='confort') then
-                etatHeureCreuse(temperature, confort, hysteresis)
+                if (temperature < (confort - hysteresis) ) then
+                    print('Allumage du chauffage en heure creuse dans : ' ..chauffage['sonde'])
+                    commandArray[chauffage['radiateur']] = 'Off'
+                elseif (temperature > (confort + hysteresis)) then
+                    print('Extinction du chauffage en heure creuse dans : ' ..chauffage['sonde'])
+                    commandArray[chauffage['radiateur']] = 'On'
+                end
 
             elseif (otherdevices[chauffage['thermostat']]=='boost') then
-                etatHeureCreuse(temperature, boost, hysteresis)
+                if (temperature < (boost - hysteresis) ) then
+                    print('Allumage du chauffage en Boost dans : ' ..chauffage['sonde'])
+                    commandArray[chauffage['radiateur']] = 'Off'
+                elseif (temperature > (boost + hysteresis)) then
+                    print('Extinction du chauffage en Boost dans : ' ..chauffage['sonde'])
+                    commandArray[chauffage['radiateur']] = 'On'
+                end
             end
 
         elseif (otherdevices[chauffage['thermostat']]=='Off') then
-            commandArray[chauffage['radiateur']]='On'   
-        end         
-    end  
+            commandArray[chauffage['radiateur']]='On'
+        end
+    end
 end

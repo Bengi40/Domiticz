@@ -30,10 +30,6 @@ local   chauffage={}
 --       Fin de la partie configuration     --
 ----------------------------------------------
  
-
 commandArray = {}
-
-    if (otherdevices[saison]== 'Hiver') then
-        etatChauffage(chauffage)
-    end
+    etatChauffage(chauffage)
 return commandArray
